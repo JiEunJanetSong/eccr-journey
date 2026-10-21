@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#173f35">
+  <title>ECCR · Reading lab</title>
+  <link rel="stylesheet" href="./style.css">
+  <script src="./app.js" type="module"></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="./">ECCR <span>READING LAB</span></a>
+    <button id="language" aria-label="Switch language to English">English</button>
+  </header>
+  <main>
+    <section class="intro">
+      <p class="eyebrow">BUILD · LISTEN · CHECK</p>
+      <h1 data-ko="한 권의 리더를 직접 만들어보기" data-en="Build your own small reader">한 권의 리더를 직접 만들어보기</h1>
+      <p data-ko="원고 → 화면 → 교사 음성 → 오프라인. Book 7에서 고른 3쪽·11문장으로 핵심 과정을 실습합니다." data-en="Manuscript → page → teacher audio → offline. Practise the core workflow with 3 pages and 11 sentences selected from Book 7.">원고 → 화면 → 교사 음성 → 오프라인. Book 7에서 고른 3쪽·11문장으로 핵심 과정을 실습합니다.</p>
+      <p class="quiet" data-ko="이 실습은 새로 만든 소형 예제입니다. 기존 12쪽 Book 7의 조판이나 전체 앱을 그대로 복제하지 않습니다." data-en="This is a new, small teaching example. It does not duplicate the original 12-page Book 7 layout or the complete production app.">이 실습은 새로 만든 소형 예제입니다. 기존 12쪽 Book 7의 조판이나 전체 앱을 그대로 복제하지 않습니다.</p>
+    </section>
+    <div id="error" class="error" role="alert" hidden></div>
+    <div class="workspace" id="workspace" hidden>
+      <section class="reading">
+        <div class="reading-toolbar">
+          <span id="page-count"></span>
+          <div>
+            <button id="previous" aria-label="Previous page">←</button>
+            <button id="next" aria-label="Next page">→</button>
+            <button id="print" data-ko="인쇄 / PDF" data-en="Print / PDF">인쇄 / PDF</button>
+          </div>
+        </div>
+        <div id="reader"></div>
+        <p id="status" class="status" role="status" aria-live="polite"></p>
+      </section>
+      <aside class="tools">
+        <h2 data-ko="교사의 작업대" data-en="Teacher workspace">교사의 작업대</h2>
+        <p class="quiet" data-ko="음성·그림·편집 내용은 이 브라우저에만 저장됩니다. 서버로 전송하지 않습니다." data-en="Recordings, pictures and edits stay in this browser. They are not uploaded to a server.">음성·그림·편집 내용은 이 브라우저에만 저장됩니다. 서버로 전송하지 않습니다.</p>
+        <details open>
+          <summary data-ko="1. 문장에 내 목소리 연결하기" data-en="1. Connect a teacher recording">1. 문장에 내 목소리 연결하기</summary>
+          <label for="sentence" data-ko="현재 페이지의 문장" data-en="Sentence on this page">현재 페이지의 문장</label>
+          <select id="sentence"></select>
+          <label for="audio-file" data-ko="녹음 파일 선택 (문장 하나, 최대 10 MB)" data-en="Choose a recording (one sentence, up to 10 MB)">녹음 파일 선택 (문장 하나, 최대 10 MB)</label>
+          <input id="audio-file" type="file" accept="audio/*,.m4a">
+          <div class="button-row">
+            <button id="record" data-ko="마이크로 녹음" data-en="Record with microphone">마이크로 녹음</button>
+            <button id="stop-record" hidden data-ko="녹음 마치고 저장" data-en="Stop and save">녹음 마치고 저장</button>
+            <button id="remove-audio" data-ko="선택한 녹음 삭제" data-en="Remove recording">선택한 녹음 삭제</button>
+          </div>
+          <p class="quiet" data-ko="먼저 허용된 목소리로 녹음하세요. 글과 녹음이 일치하는지 직접 듣고 확인합니다. 음성이 없으면 재생하지 않습니다." data-en="Record a voice you have permission to use. Listen and check that it matches the text. Missing audio is never replaced with synthetic speech.">먼저 허용된 목소리로 녹음하세요. 글과 녹음이 일치하는지 직접 듣고 확인합니다. 음성이 없으면 재생하지 않습니다.</p>
+        </details>
+        <details>
+          <summary data-ko="2. 그림 넣기 · 조판 살펴보기" data-en="2. Add an illustration · inspect layout">2. 그림 넣기 · 조판 살펴보기</summary>
+          <label for="image-file" data-ko="현재 페이지의 그림 (PNG/JPEG/WebP, 최대 10 MB)" data-en="Picture for this page (PNG/JPEG/WebP, up to 10 MB)">현재 페이지의 그림 (PNG/JPEG/WebP, 최대 10 MB)</label>
+          <input id="image-file" type="file" accept="image/png,image/jpeg,image/webp">
+          <button id="remove-image" data-ko="현재 그림 삭제" data-en="Remove picture">현재 그림 삭제</button>
+          <p class="quiet" data-ko="사용 권한이 있는 그림을 선택하세요. 그림은 잘라내지 않고 맞춥니다. PDF 저장 시 글씨와 그림이 잘리는지 확인하세요." data-en="Use artwork you have permission to use. Pictures fit without cropping. Check the print preview for clipped text or artwork.">사용 권한이 있는 그림을 선택하세요. 그림은 잘라내지 않고 맞춥니다. PDF 저장 시 글씨와 그림이 잘리는지 확인하세요.</p>
+        </details>
+        <details>
+          <summary data-ko="3. 코드 펼쳐보기 · 원고 수정" data-en="3. Open the code · edit the manuscript">3. 코드 펼쳐보기 · 원고 수정</summary>
+          <p class="quiet" data-ko="book.json이 화면과 인쇄본의 공통 원고입니다. text를 바꾸고 적용하세요. 문장을 바꾸면 기존 녹음은 해제됩니다." data-en="book.json is the shared manuscript for the screen and printout. Change a text value and apply. Changing a sentence removes its old recording.">book.json이 화면과 인쇄본의 공통 원고입니다. text를 바꾸고 적용하세요. 문장을 바꾸면 기존 녹음은 해제됩니다.</p>
+          <label for="json-editor">book.json</label>
+          <textarea id="json-editor" spellcheck="false" rows="14"></textarea>
+          <button id="apply-json" data-ko="원고 적용" data-en="Apply manuscript">원고 적용</button>
+          <button id="download-json" data-ko="book.json 다운로드" data-en="Download book.json">book.json 다운로드</button>
+          <p><a href="./app.js" target="_blank" rel="noopener" data-ko="화면·음성 코드" data-en="Reader / audio code">화면·음성 코드</a> · <a href="./sw.js" target="_blank" rel="noopener" data-ko="오프라인 코드" data-en="Offline code">오프라인 코드</a></p>
+        </details>
+        <details>
+          <summary data-ko="4. 오프라인 저장 · 검증" data-en="4. Save offline · verify">4. 오프라인 저장 · 검증</summary>
+          <p id="offline-status" class="quiet"></p>
+          <button id="save-offline" data-ko="이 실습을 오프라인에 저장" data-en="Save this lab offline">이 실습을 오프라인에 저장</button>
+          <ol>
+            <li data-ko="저장 완료를 확인합니다." data-en="Wait for the cache check to complete.">저장 완료를 확인합니다.</li>
+            <li data-ko="인터넷을 끕니다. 새로고침하고 글·그림·연결한 음성이 나오는지 확인합니다." data-en="Disconnect the internet. Reload and check the text, pictures and attached recordings.">인터넷을 끕니다. 새로고침하고 글·그림·연결한 음성이 나오는지 확인합니다.</li>
+            <li data-ko="localhost는 인터넷 없이도 서버가 켜져 있으면 열립니다. 다운로드한 키트는 서버까지 종료한 뒤 같은 주소에서 다시 확인해야 캐시를 검증할 수 있습니다." data-en="Localhost still works without internet while its server is running. For the downloaded kit, stop the local server and reload the same address to test the cache itself.">localhost는 인터넷 없이도 서버가 켜져 있으면 열립니다. 다운로드한 키트는 서버까지 종료한 뒤 같은 주소에서 다시 확인해야 캐시를 검증할 수 있습니다.</li>
+          </ol>
+          <p class="quiet" data-ko="HTTPS 또는 localhost에서 실행해야 합니다. 다른 브라우저·기기로 복사되지 않으며 브라우저가 저장 공간을 비우면 사라질 수 있습니다." data-en="Use HTTPS or localhost. Storage does not transfer to another browser or device, and the browser may evict it.">HTTPS 또는 localhost에서 실행해야 합니다. 다른 브라우저·기기로 복사되지 않으며 브라우저가 저장 공간을 비우면 사라질 수 있습니다.</p>
+        </details>
+        <details>
+          <summary data-ko="5. 내 작업 백업 · 가져오기 · 초기화" data-en="5. Back up · restore · reset">5. 내 작업 백업 · 가져오기 · 초기화</summary>
+          <button id="export-project" data-ko="원고·음성·그림을 한 파일로 백업" data-en="Back up text, audio and pictures">원고·음성·그림을 한 파일로 백업</button>
+          <label for="import-project" data-ko="백업 가져오기 (현재 실습을 교체)" data-en="Restore a backup (replaces this lab)">백업 가져오기 (현재 실습을 교체)</label>
+          <input id="import-project" type="file" accept=".json,application/json">
+          <p class="quiet" data-ko="백업에는 선택한 음성·그림이 포함됩니다. 공유 전에 내용을 확인하세요. book.json만으로는 녹음이 함께 전달되지 않습니다." data-en="The backup includes your selected audio and images. Review it before sharing. Downloading book.json alone does not include recordings.">백업에는 선택한 음성·그림이 포함됩니다. 공유 전에 내용을 확인하세요. book.json만으로는 녹음이 함께 전달되지 않습니다.</p>
+          <button id="reset" class="danger" data-ko="이 실습의 편집·녹음·그림 초기화" data-en="Reset this lab's text, audio and pictures">이 실습의 편집·녹음·그림 초기화</button>
+        </details>
+      </aside>
+    </div>
+    <footer>
+      <p data-ko="출처: Yaw–Janet Book 7 원고 중 발췌 · 실습 설계: ECCR Learning Lab" data-en="Source: excerpts from the Yaw–Janet Book 7 manuscript · Teaching implementation: ECCR Learning Lab">출처: Yaw–Janet Book 7 원고 중 발췌 · 실습 설계: ECCR Learning Lab</p>
+      <p>Produced by Team Kairos · <a href="./source-manuscript.txt" target="_blank" rel="noopener" data-ko="원고 원문" data-en="Original manuscript">원고 원문</a> · <a href="./readme.txt" target="_blank" rel="noopener" data-ko="실행 안내" data-en="Setup guide">실행 안내</a></p>
+    </footer>
+  </main>
+</body>
+</html>

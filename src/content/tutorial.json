@@ -1,0 +1,871 @@
+{
+  "version": 1,
+  "audience": {
+    "en": "Teachers working with AI; code is optional and expandable.",
+    "ko": "AI와 함께 만드는 교사. 코드는 필요할 때 펼쳐 봅니다."
+  },
+  "intro": {
+    "en": "Build one representative reader and its talking page, then reuse the method for the larger ECCR kit. The lessons follow artifact dependencies rather than the dates of the collaboration.",
+    "ko": "대표 읽기책 한 권과 소리 나는 페이지를 만들고, 같은 방법을 ECCR 전체 자료로 확장합니다. 협업 날짜 대신 결과물이 만들어지는 순서대로 따라갑니다."
+  },
+  "promptLabel": {
+    "en": "New reusable prompt template",
+    "ko": "새로 작성한 재사용 프롬프트"
+  },
+  "evidenceLabel": {
+    "en": "Historical request + response summary",
+    "ko": "실제 요청 원문 + 응답 요약"
+  },
+  "limits": {
+    "en": "Browser exercises help you design, inspect and export work. Image generation, final PDF building, recording and deployment happen with the corresponding tools. Historical response summaries report what was said then; current files may differ.",
+    "ko": "브라우저 실습에서는 내용을 설계·검토·내보내기 합니다. 이미지 생성·최종 PDF 제작·녹음·배포는 해당 도구에서 진행합니다. 과거 응답 요약은 당시 기록이며 현재 파일과 다를 수 있습니다."
+  },
+  "workedExample": {
+    "name": "Sam and the Cat — Book 7",
+    "historicalSource": "w268",
+    "historicalPages": 8,
+    "currentPdfPages": 12,
+    "currentSource": "book/output/pdf/최종/ECCR_Book_7.pdf",
+    "historicalReadingText": [
+      "Sam can pat the cat.",
+      "The cat sat on a mat.",
+      "Sam and the cat sat."
+    ],
+    "currentReadingText": [
+      "Sam can pat the cat.",
+      "The cat sat on a mat.",
+      "Sam and the cat sat on the mat."
+    ],
+    "note": {
+      "en": "The eight-page proposal and the twelve-page final Book 7 are different editions. Select one before reproducing it; keep classroom adaptations as named revisions.",
+      "ko": "8쪽 제안과 최종 12쪽 Book 7은 다른 판본입니다. 재현할 기준을 먼저 고르고 학급용 변형은 별도 수정본으로 남기세요."
+    }
+  },
+  "lessons": [
+    {
+      "id": "brief",
+      "title": {
+        "en": "Start with one learner and one reading goal",
+        "ko": "학생과 읽기 목표부터 정하기"
+      },
+      "goal": {
+        "en": "Turn a teaching intention into a brief that another person or AI can act on.",
+        "ko": "수업 의도를 다른 사람이나 AI가 실행할 수 있는 제작 조건으로 바꿉니다."
+      },
+      "teacherTask": {
+        "en": "Choose the learners, language, sounds already taught and one observable success. Build one short reader first. Keep class observations separate from the manuscript.",
+        "ko": "학습자, 언어, 이미 가르친 음가, 확인할 성취 한 가지를 정하세요. 먼저 짧은 읽기책 한 권을 만듭니다. 학급 관찰 기록과 원고는 구분해 둡니다."
+      },
+      "inputs": [
+        {
+          "en": "Yaw’s eight-page “Sam and the Cat” proposal; a blank project brief.",
+          "ko": "야우의 8쪽 “Sam and the Cat” 제안과 빈 제작 계획서."
+        },
+        {
+          "en": "Teacher-confirmed sound inventory, prepared words and a familiar setting.",
+          "ko": "교사가 확인한 음가 목록, 미리 가르칠 단어, 학생에게 친숙한 배경."
+        }
+      ],
+      "prompt": {
+        "en": "Help me make a short reader for [learners] in [language]. They already know [sounds]. I will teach [prepared words] before reading. The setting is [local context]. The learning goal is [observable action]. Start from the attached Sam and the Cat outline. Return a one-page brief with learner text, teacher directions, page functions and review questions separated. Identify any missing prerequisites. Do not silently add harder spelling patterns. Keep original source wording separate from proposed adaptations.",
+        "ko": "내 학급 [학습자]를 위한 [언어] 짧은 읽기책을 만들자. 이미 배운 음가는 [목록], 읽기 전에 가르칠 단어는 [목록], 학생에게 친숙한 배경은 [장소]야. 확인할 학습 목표는 [관찰 가능한 행동]이야. 첨부한 Sam and the Cat 구성을 출발점으로 학생용 글, 교사용 지시, 페이지별 역할, 검토 질문을 구분한 한 장짜리 제작 계획서를 만들어줘. 필요한 선행 학습을 찾아주고, 더 어려운 철자 패턴을 임의로 추가하지 마. 원문과 수정 제안은 따로 표시해줘."
+      },
+      "expected": {
+        "en": "A saved project brief: audience, goal, prerequisites, page plan, source version and review owner.",
+        "ko": "학습자·목표·선행 학습·쪽 구성·원본 버전·검토 담당자를 적은 제작 계획서."
+      },
+      "checks": [
+        {
+          "en": "The goal describes what the learner will do, not only what the book will contain.",
+          "ko": "책에 들어갈 내용뿐 아니라 학생이 할 행동이 적혀 있다."
+        },
+        {
+          "en": "Prepared words and sounds to teach first are visible.",
+          "ko": "미리 가르칠 단어와 음가가 명시되어 있다."
+        },
+        {
+          "en": "The first deliverable is small enough to inspect page by page.",
+          "ko": "첫 결과물은 한 쪽씩 검토할 수 있는 분량이다."
+        }
+      ],
+      "challenge": {
+        "symptom": {
+          "en": "“Make an attractive phonics book” produces a large workbook, but you wanted connected reading.",
+          "ko": "“예쁜 파닉스 책을 만들어줘”라고 요청했더니 연결된 이야기 대신 큰 연습책이 나왔습니다."
+        },
+        "revision": {
+          "en": "Compare the result with the goal. For each requirement, point to the matching page or mark it missing. I need one illustration with connected sentences, not just isolated drills. Propose the smallest revision and preserve the previous file.",
+          "ko": "결과물과 제작 목표를 대조해줘. 조건마다 해당 페이지를 적고, 없으면 누락으로 표시해줘. 한 그림에 연결된 여러 문장이 필요해. 가장 작은 수정안을 제시하고 이전 파일은 보존해줘."
+        },
+        "lesson": {
+          "en": "An explicit output contract catches a mismatch before producing a whole series.",
+          "ko": "출력 조건을 먼저 정하면 시리즈 전체를 만들기 전에 요구와 결과의 차이를 찾을 수 있습니다."
+        }
+      },
+      "evidence": [
+        "w268",
+        "a0-0",
+        "a0-0r",
+        "a2-367",
+        "a2-367r",
+        "full-1228"
+      ],
+      "transfer": {
+        "en": "Replace the book number with the learner’s readiness. Yaw’s books serve different purposes and are introduced when learners are ready.",
+        "ko": "책 번호 대신 학습자의 준비도를 기준으로 선택하세요. 야우의 교재들은 목적이 서로 다르며 학생이 준비되었을 때 도입합니다."
+      }
+    },
+    {
+      "id": "manuscript",
+      "title": {
+        "en": "Keep the manuscript editable",
+        "ko": "원고를 수정 가능한 데이터로 만들기"
+      },
+      "goal": {
+        "en": "Separate reading content from presentation so one correction can feed print, audio and practice.",
+        "ko": "읽기 내용과 디자인을 분리해 한 번의 수정이 인쇄·음성·연습 자료에 이어지게 합니다."
+      },
+      "teacherTask": {
+        "en": "Enter the title, page roles and sentences. Compare the historical outline with the current edition before choosing a base. Mark words that need prior teaching.",
+        "ko": "제목, 페이지 역할, 문장을 입력하세요. 과거 제작안과 현재 판본을 비교해 기준을 고릅니다. 미리 가르쳐야 할 단어를 표시하세요."
+      },
+      "inputs": [
+        {
+          "en": "Historical page 4: “Sam can pat the cat. / The cat sat on a mat. / Sam and the cat sat.”",
+          "ko": "과거 원고 4쪽: “Sam can pat the cat. / The cat sat on a mat. / Sam and the cat sat.”"
+        },
+        {
+          "en": "Current Book 7 PDF page 5 changes the final sentence to “Sam and the cat sat on the mat.”",
+          "ko": "현재 Book 7의 PDF 5쪽에서는 마지막 문장이 “Sam and the cat sat on the mat.”로 수정되었습니다."
+        }
+      ],
+      "prompt": {
+        "en": "Convert this approved source into editable page data. Keep page ID, role, title, exact learner sentences, teacher-read questions and illustration brief in separate fields. Do not rewrite text while transcribing it. Produce a separate review table for word length, taught sounds and prepared words. A short word is not automatically decodable; flag uncertain cases for the teacher. Save the source edition and a change log.",
+        "ko": "승인한 원고를 수정 가능한 페이지 데이터로 정리해줘. 페이지 ID, 역할, 제목, 학생이 읽을 정확한 문장, 교사가 읽어줄 질문, 삽화 지시를 각각 다른 필드에 넣어줘. 옮겨 적는 동안 문장을 바꾸지 마. 단어 길이·이미 배운 음가·준비 단어 검토표는 별도로 만들어줘. 짧은 단어가 곧 읽기 가능한 단어라는 뜻은 아니므로 판단이 어려우면 교사 확인으로 표시해줘. 기준 판본과 변경 기록도 남겨줘."
+      },
+      "expected": {
+        "en": "Editable page data and a teacher review list; both the original and your adaptation remain identifiable.",
+        "ko": "수정 가능한 페이지 데이터와 교사 검토 목록. 원문과 우리 학급용 수정본이 구별됩니다."
+      },
+      "checks": [
+        {
+          "en": "Every sentence matches the selected source, including punctuation.",
+          "ko": "모든 문장과 문장부호가 선택한 원본과 일치한다."
+        },
+        {
+          "en": "Teacher directions are not counted as learner decoding text.",
+          "ko": "교사용 지시문을 학생 읽기 본문으로 계산하지 않는다."
+        },
+        {
+          "en": "Words such as after, to, by, was and glad in the historical story are reviewed against the actual teaching sequence.",
+          "ko": "과거 이야기의 after, to, by, was, glad 등을 실제 교수 순서에 맞춰 검토했다."
+        }
+      ],
+      "challenge": {
+        "symptom": {
+          "en": "A word counter accepts “with” because it has four letters.",
+          "ko": "단어 수 검사기가 with를 네 글자라는 이유로 통과시켰습니다."
+        },
+        "revision": {
+          "en": "List every word’s required sound-spelling knowledge and compare it with my taught inventory. Keep the automatic count as a warning tool. Propose changes separately; I will approve the learner text.",
+          "ko": "각 단어에 필요한 음가·철자 지식을 이미 가르친 목록과 대조해줘. 자동 글자 수 검사는 경고 도구로만 사용하자. 수정안은 따로 제시해줘. 학생용 본문은 내가 승인할게."
+        },
+        "lesson": {
+          "en": "Counting can find violations of a length rule; teacher review determines teaching suitability.",
+          "ko": "글자 수 검사는 길이 조건 위반을 찾고, 수업 적합성은 교사가 판단합니다."
+        }
+      },
+      "evidence": [
+        "w268",
+        "a0-0",
+        "a2-367",
+        "a2-367r",
+        "a2-387",
+        "a2-387r"
+      ],
+      "transfer": {
+        "en": "Use the same structure for a Twi story, but keep its language-specific review rules and reviewer.",
+        "ko": "같은 구조를 Twi 이야기에도 쓰되 해당 언어의 검토 기준과 검토자를 따로 정하세요."
+      },
+      "code": {
+        "title": {
+          "en": "Page data example",
+          "ko": "페이지 데이터 예시"
+        },
+        "language": "json",
+        "text": "{\n  \"source\": \"Yaw historical outline — page 4\",\n  \"role\": \"reading-practice\",\n  \"title\": \"More Reading Practice\",\n  \"sentences\": [\n    \"Sam can pat the cat.\",\n    \"The cat sat on a mat.\",\n    \"Sam and the cat sat.\"\n  ]\n}",
+        "source": "Historical text: w268; field structure: new tutorial example.",
+        "note": {
+          "en": "This compact schema is a new teaching example, not the original app’s runtime schema.",
+          "ko": "이 간단한 형식은 새 실습 예시입니다. 기존 앱의 실행 데이터 형식과는 구분됩니다."
+        },
+        "caption": {
+          "en": "Page data example",
+          "ko": "페이지 데이터 예시"
+        },
+        "sourceNote": {
+          "en": "This compact schema is a new teaching example, not the original app’s runtime schema.",
+          "ko": "이 간단한 형식은 새 실습 예시입니다. 기존 앱의 실행 데이터 형식과는 구분됩니다."
+        }
+      }
+    },
+    {
+      "id": "illustration",
+      "title": {
+        "en": "Generate the picture; typeset the words",
+        "ko": "그림은 생성하고 글자는 따로 조판하기"
+      },
+      "goal": {
+        "en": "Make illustrations replaceable while preserving exact spelling and readable text.",
+        "ko": "삽화는 바꿀 수 있게 만들고 철자와 본문의 가독성은 정확하게 유지합니다."
+      },
+      "teacherTask": {
+        "en": "Write one scene brief from the approved sentences. Specify the people, action, objects and empty space. Request an image without letters, then inspect it against the text.",
+        "ko": "승인한 문장으로 한 장면의 지시서를 쓰세요. 인물·행동·사물·여백을 정합니다. 글자 없는 이미지를 요청한 뒤 본문과 맞는지 확인합니다."
+      },
+      "inputs": [
+        {
+          "en": "Approved More Reading Practice sentences and the historical Book 7 scene prompt.",
+          "ko": "승인한 More Reading Practice 문장과 Book 7의 실제 삽화 프롬프트."
+        },
+        {
+          "en": "A consistent character reference and the intended image frame.",
+          "ko": "일관된 인물 참조 이미지와 삽화가 들어갈 영역."
+        }
+      ],
+      "prompt": {
+        "en": "Create one illustration for the attached reading page: Sam gently pats an orange cat sitting on a woven mat in a Ghanaian schoolyard. Preserve the agreed character design. Keep heads, hands, the cat and the whole mat safely inside the frame. Use an uncluttered warm early-reader style. Include no letters, words, numbers, captions or logos. I will typeset the exact sentences separately. Explain any source-text ambiguity before generating.",
+        "ko": "첨부한 읽기 페이지에 넣을 삽화 한 장을 만들어줘. 가나 학교 마당에서 샘이 짜임 있는 매트에 앉은 주황색 고양이를 부드럽게 쓰다듬고 있어. 합의한 인물 디자인을 유지하고 머리·손·고양이·매트 전체가 프레임 안에 여유 있게 들어가게 해줘. 단정하고 따뜻한 초급 읽기책 분위기로, 글자·단어·숫자·자막·로고는 넣지 마. 정확한 문장은 내가 따로 조판할 거야. 원문이 모호하면 생성 전에 먼저 짚어줘."
+      },
+      "expected": {
+        "en": "An illustration file, its scene prompt and a record of the manuscript version it illustrates.",
+        "ko": "삽화 파일, 사용한 장면 프롬프트, 기준 원고 버전 기록."
+      },
+      "checks": [
+        {
+          "en": "The picture matches who does what and where.",
+          "ko": "누가 무엇을 어디에서 하는지 본문과 맞는다."
+        },
+        {
+          "en": "Important faces and objects are entirely visible.",
+          "ko": "주요 얼굴과 사물이 잘리지 않는다."
+        },
+        {
+          "en": "Learner text remains separate editable text.",
+          "ko": "학생용 글자는 수정 가능한 별도 텍스트로 남아 있다."
+        }
+      ],
+      "challenge": {
+        "symptom": {
+          "en": "The generated picture misspells ɔ/ɛ or depicts the cat away from the mat.",
+          "ko": "생성된 그림 속 ɔ/ɛ가 틀리거나 고양이가 매트와 떨어진 곳에 있습니다."
+        },
+        "revision": {
+          "en": "Remove all generated text from the artwork. Regenerate only the scene so the cat is visibly sitting on the mat. Keep the approved manuscript unchanged, and typeset it in a font that supports its characters.",
+          "ko": "삽화 안에서 생성한 글자는 모두 없애줘. 고양이가 매트에 앉아 있는 장면만 다시 만들어줘. 승인된 원고는 그대로 두고 해당 문자를 지원하는 글꼴로 따로 조판해줘."
+        },
+        "lesson": {
+          "en": "Text–image separation makes both language correction and image replacement manageable.",
+          "ko": "글자와 그림을 분리하면 언어 교정과 삽화 교체를 각각 다룰 수 있습니다."
+        }
+      },
+      "evidence": [
+        "w165",
+        "a0-10",
+        "a0-10r",
+        "a1-10",
+        "a1-10r",
+        "revision-note"
+      ],
+      "transfer": {
+        "en": "Ask the local teacher to check clothing, objects, relationships and setting before reusing the image style.",
+        "ko": "같은 그림 스타일을 계속 쓰기 전에 현지 교사에게 의복·사물·관계·배경을 확인받으세요."
+      },
+      "code": {
+        "title": {
+          "en": "Historical scene prompt",
+          "ko": "실제 사용한 장면 프롬프트"
+        },
+        "language": "text",
+        "text": "More reading illustration: Sam gently patting the orange cat while the cat sits on a woven mat, no text.",
+        "source": "book/v.0/결과물Yaw_Janet/book_7_8_9_materials/05_prompts/sam_and_cat_imagegen_prompts.md",
+        "note": {
+          "en": "Verbatim scene text from the saved production prompts; the reusable prompt above is newly written.",
+          "ko": "저장된 제작 프롬프트의 장면 원문입니다. 위의 재사용 프롬프트는 새로 작성했습니다."
+        },
+        "caption": {
+          "en": "Historical scene prompt",
+          "ko": "실제 사용한 장면 프롬프트"
+        },
+        "sourceNote": {
+          "en": "Verbatim scene text from the saved production prompts; the reusable prompt above is newly written.",
+          "ko": "저장된 제작 프롬프트의 장면 원문입니다. 위의 재사용 프롬프트는 새로 작성했습니다."
+        }
+      }
+    },
+    {
+      "id": "layout",
+      "title": {
+        "en": "Build one page before a whole book",
+        "ko": "한 페이지를 검토한 뒤 책 전체로 확장하기"
+      },
+      "goal": {
+        "en": "Learn how image fitting, text size, spacing and page identity affect a usable book.",
+        "ko": "이미지 맞춤, 글자 크기, 간격, 페이지 구분이 사용성에 주는 영향을 익힙니다."
+      },
+      "teacherTask": {
+        "en": "Combine one approved image and the exact sentences. Adjust the image/text balance in the preview. Inspect the entire image, then export the book and inspect every page.",
+        "ko": "승인한 그림 한 장과 정확한 문장을 합쳐보세요. 미리보기에서 그림과 본문의 비율을 바꿉니다. 그림 전체를 확인한 뒤 책을 내보내고 모든 쪽을 살펴봅니다."
+      },
+      "inputs": [
+        {
+          "en": "Editable manuscript, separate image and a chosen paper size.",
+          "ko": "수정 가능한 원고, 별도 삽화, 선택한 종이 크기."
+        },
+        {
+          "en": "A page map that distinguishes PDF page index from printed page number.",
+          "ko": "PDF 쪽 순서와 인쇄된 쪽 번호를 구분한 페이지 표."
+        }
+      ],
+      "prompt": {
+        "en": "Lay out the approved manuscript and separate images as a reader. Keep text out of image areas. Fit each illustration without cutting off people or important objects. Use [paper size], readable text and real writing space. Return the editable source, PDF, page previews and page map. Mark app and print editions explicitly. If the page count differs from the historical eight-page draft, explain the added cover, credits or blank pages.",
+        "ko": "승인한 원고와 별도 삽화로 읽기책을 조판해줘. 본문이 그림을 가리지 않게 영역을 나누고, 인물이나 중요한 사물을 자르지 않도록 그림 전체를 맞춰줘. [종이 크기], 읽기 좋은 글자, 실제로 쓸 수 있는 쓰기 공간을 적용해줘. 수정 가능한 원본·PDF·쪽별 미리보기·페이지 표를 제공해줘. 앱용과 인쇄용 판본을 명시하고, 과거 8쪽 초안과 쪽수가 달라지면 추가된 표지·제작진·빈 페이지를 설명해줘."
+      },
+      "expected": {
+        "en": "A readable PDF, its editable generator/source and a page-by-page preview.",
+        "ko": "읽기 좋은 PDF, 수정 가능한 생성 원본, 쪽별 미리보기."
+      },
+      "checks": [
+        {
+          "en": "No text overlaps artwork; all required faces and objects remain visible.",
+          "ko": "글자가 그림을 가리지 않고 필요한 얼굴과 사물이 모두 보인다."
+        },
+        {
+          "en": "Print one page at 100% to check text and writing space.",
+          "ko": "한 쪽을 100% 크기로 출력해 글자와 쓰기 공간을 확인했다."
+        },
+        {
+          "en": "Page order and printed numbers match the intended edition.",
+          "ko": "쪽 순서와 인쇄 쪽 번호가 선택한 판본에 맞는다."
+        }
+      ],
+      "challenge": {
+        "symptom": {
+          "en": "A picture fills its frame but crops a head. A change made to the print PDF shifts the audio page positions.",
+          "ko": "그림이 프레임을 채우는 대신 머리가 잘립니다. 인쇄 PDF의 쪽 수를 바꾸니 음성 페이지 위치도 달라집니다."
+        },
+        "revision": {
+          "en": "Fit this image in full with surrounding space. Keep the text area separate. Regenerate the page map and compare the app’s image order and touch areas with the revised PDF. Do not infer app page positions from old printed page numbers.",
+          "ko": "이 그림 전체가 보이도록 여백을 두고 맞춰줘. 본문 영역은 별도로 유지해줘. 페이지 표를 다시 만들고 수정 PDF에 맞춰 앱의 이미지 순서와 터치 영역을 대조해줘. 예전 인쇄 쪽 번호로 앱 위치를 추정하지 마."
+        },
+        "lesson": {
+          "en": "A visually correct PDF and correctly mapped app are separate checks.",
+          "ko": "PDF의 시각적 완성도와 앱의 페이지 연결은 따로 확인해야 합니다."
+        }
+      },
+      "evidence": [
+        "a0-42",
+        "a0-42r",
+        "a0-81",
+        "a0-81r",
+        "a0-88",
+        "a0-88r",
+        "a2-304",
+        "a2-304r",
+        "a2-335",
+        "a2-335r"
+      ],
+      "transfer": {
+        "en": "Keep an app edition and a print edition when classroom use requires different page orders or blank pages.",
+        "ko": "교실 활용에 따라 쪽 순서나 빈 페이지가 달라지면 앱용과 인쇄용 판본을 각각 관리하세요."
+      },
+      "code": {
+        "title": {
+          "en": "Fit the full image inside a frame",
+          "ko": "그림 전체를 프레임 안에 맞추는 계산"
+        },
+        "language": "python",
+        "text": "scale = min(w / iw, h / ih)\ndw, dh = iw * scale, ih * scale\ndx = x + (w - dw) / 2\ndy = y + (h - dh) / 2",
+        "source": "book/output/pdf/a4/phonics_abc_20260921/build_series.py · art()",
+        "note": {
+          "en": "Reformatted calculation from the saved generator. w/h are the frame size; iw/ih are the source image size.",
+          "ko": "저장된 생성기의 계산식을 보기 좋게 정리했습니다. w/h는 프레임, iw/ih는 원본 그림 크기입니다."
+        },
+        "caption": {
+          "en": "Fit the full image inside a frame",
+          "ko": "그림 전체를 프레임 안에 맞추는 계산"
+        },
+        "sourceNote": {
+          "en": "Reformatted calculation from the saved generator. w/h are the frame size; iw/ih are the source image size.",
+          "ko": "저장된 생성기의 계산식을 보기 좋게 정리했습니다. w/h는 프레임, iw/ih는 원본 그림 크기입니다."
+        }
+      }
+    },
+    {
+      "id": "review",
+      "title": {
+        "en": "Turn feedback into an exact correction",
+        "ko": "교사의 피드백을 정확한 수정으로 바꾸기"
+      },
+      "goal": {
+        "en": "Make a correction traceable from the teacher’s words to the updated artifact.",
+        "ko": "교사의 말에서 수정된 결과물까지 변경 이유를 따라갈 수 있게 합니다."
+      },
+      "teacherTask": {
+        "en": "Choose one documented issue. Record the old text, approved new text, affected page and reason. Ask for a narrow edit, then inspect the rendered result and its downstream uses.",
+        "ko": "기록에 남은 문제 하나를 고르세요. 이전 문장·승인한 문장·해당 쪽·이유를 적습니다. 범위를 좁혀 수정을 요청하고 화면과 연결 자료를 확인합니다."
+      },
+      "inputs": [
+        {
+          "en": "Teacher feedback, the chosen PDF edition and editable source.",
+          "ko": "교사의 검토 의견, 수정할 PDF 판본, 수정 가능한 원본."
+        },
+        {
+          "en": "Book 7 example: historical “The cat sat.” → current “The cat sat on the mat.”",
+          "ko": "Book 7 예시: 과거 “The cat sat.” → 현재 “The cat sat on the mat.”"
+        }
+      ],
+      "prompt": {
+        "en": "Apply only these approved corrections: [old → new, page, reason]. Confirm the source edition first. Preserve the previous file and save a change log. Show before/after text and page previews. Identify affected recordings, touch areas, questions and answer keys. Do not paraphrase other learner sentences. List any unclear feedback for teacher review.",
+        "ko": "다음 승인된 수정만 적용해줘: [이전 → 수정, 쪽, 이유]. 먼저 기준 판본을 확인해줘. 이전 파일을 보존하고 변경 기록을 남겨줘. 이전·수정 문장과 쪽별 미리보기를 보여줘. 영향을 받는 녹음·터치 영역·문항·정답을 찾아줘. 다른 학생용 문장은 바꾸지 말고, 해석이 불분명한 의견은 교사 확인 목록으로 남겨줘."
+      },
+      "expected": {
+        "en": "A corrected edition, before/after record and a list of dependent items to update.",
+        "ko": "수정 판본, 이전·이후 기록, 함께 고쳐야 할 연결 자료 목록."
+      },
+      "checks": [
+        {
+          "en": "The correction is applied to the right edition and page.",
+          "ko": "정확한 판본과 페이지를 수정했다."
+        },
+        {
+          "en": "Special characters, apostrophes and punctuation survive export.",
+          "ko": "특수문자·아포스트로피·문장부호가 내보낸 결과에도 정확하다."
+        },
+        {
+          "en": "The picture, question, answer and audio still agree with the text.",
+          "ko": "그림·질문·정답·음성이 본문과 일치한다."
+        }
+      ],
+      "challenge": {
+        "symptom": {
+          "en": "An English gloss intended for the illustrator appears in the learner’s Twi book.",
+          "ko": "삽화 제작자의 이해를 돕기 위한 영어 번역이 학생용 Twi 책에 들어갔습니다."
+        },
+        "revision": {
+          "en": "Label each text as learner-facing or production-only. Use Yaw’s final instruction to remove the English gloss from the affected learner pages. Keep it in the production notes. Show the exact pages changed.",
+          "ko": "각 글을 학생용과 제작 참고용으로 구분해줘. 야우의 최종 지시에 따라 해당 학생용 페이지에서 영어 풀이를 제거하고 제작 노트에는 보존해줘. 어느 페이지를 바꿨는지 보여줘."
+        },
+        "lesson": {
+          "en": "A source can explain the author’s intent without belonging in the finished learner book.",
+          "ko": "원고의 일부는 저자의 의도를 설명하기 위한 자료이며 학생용 책에 들어갈 내용은 아닐 수 있습니다."
+        }
+      },
+      "evidence": [
+        "w684",
+        "w686",
+        "a2-63",
+        "a2-63r",
+        "w688",
+        "a2-70",
+        "a2-70r",
+        "w857",
+        "a2-277",
+        "a2-277r",
+        "revision-note"
+      ],
+      "transfer": {
+        "en": "Use the same correction log for an assessment. Record the skill being checked and teacher-observed difficulty before expanding to a class set.",
+        "ko": "평가 자료에도 같은 수정 기록을 쓰세요. 학급 전체 세트로 확장하기 전에 확인할 기능과 교사가 관찰한 어려움을 적습니다."
+      }
+    },
+    {
+      "id": "audio",
+      "title": {
+        "en": "Connect a printed sentence to a recording",
+        "ko": "인쇄된 문장과 교사 녹음 연결하기"
+      },
+      "goal": {
+        "en": "Understand a talking page as image + exact text + touch rectangle + audio file.",
+        "ko": "소리 나는 페이지를 그림·정확한 문장·터치 사각형·음성 파일의 연결로 이해합니다."
+      },
+      "teacherTask": {
+        "en": "Record or select one approved sentence. Match it by listening, then place a touch area over that printed sentence. Resize the preview and test the same target.",
+        "ko": "승인한 문장 하나를 녹음하거나 선택하세요. 직접 들어보고 연결한 다음 인쇄된 문장 위에 터치 영역을 놓습니다. 미리보기 크기를 바꾸어 같은 문장을 누르세요."
+      },
+      "inputs": [
+        {
+          "en": "A final page image, teacher recording and the exact spoken text.",
+          "ko": "최종 페이지 이미지, 교사 녹음, 녹음된 정확한 문장."
+        },
+        {
+          "en": "A mapping table: book, page, language, text, file and rectangle.",
+          "ko": "책·쪽·언어·문장·파일·사각형을 연결한 표."
+        }
+      ],
+      "prompt": {
+        "en": "Make this page tappable. Map each printed sentence to its verified teacher recording. Store touch rectangles as percentages of the full image. Give each target an accessible text label. A new tap or page change must stop the previous audio. Mark missing recordings visibly; do not substitute an unverified voice. Return the text/audio mapping table and mobile/desktop checks. Use the existing app’s data contract when extending it.",
+        "ko": "이 페이지의 문장을 누르면 소리가 나게 만들어줘. 각 인쇄 문장을 확인한 교사 녹음과 연결하고, 터치 영역은 전체 이미지 대비 백분율로 저장해줘. 각 영역에 접근 가능한 문장 레이블을 달아줘. 다른 문장을 누르거나 페이지를 넘기면 이전 음성이 멈춰야 해. 없는 녹음은 표시하고 검증되지 않은 음성으로 대체하지 마. 문장·녹음 연결표와 모바일·데스크톱 확인 결과를 제공해줘. 기존 앱을 확장할 때는 기존 데이터 규격을 사용해줘."
+      },
+      "expected": {
+        "en": "One page whose sentences play the correct clips, plus a portable text/audio/position map.",
+        "ko": "각 문장을 누르면 정확한 녹음이 나오는 한 페이지와 문장·녹음·위치 연결 데이터."
+      },
+      "checks": [
+        {
+          "en": "Every target plays only its own sentence and language.",
+          "ko": "각 영역이 해당 문장과 언어의 녹음만 재생한다."
+        },
+        {
+          "en": "The whole sentence is tappable at mobile and desktop widths.",
+          "ko": "모바일과 데스크톱 너비에서 문장 전체를 누를 수 있다."
+        },
+        {
+          "en": "Fast taps and page changes stop the previous sound; missing recordings are distinguishable.",
+          "ko": "빠르게 누르거나 쪽을 바꿔도 이전 소리가 멈추고, 녹음이 없는 부분을 알 수 있다."
+        }
+      ],
+      "challenge": {
+        "symptom": {
+          "en": "The hotspot drifts on a phone, or repeated readings sound unnaturally fast.",
+          "ko": "휴대전화에서 터치 영역이 어긋나거나 반복 읽기가 지나치게 빠르게 들립니다."
+        },
+        "revision": {
+          "en": "Recalculate the box from the full image size and inspect it after resizing. Listen to the original recording and the exported clip. Check removed pauses and playback rate before changing the speech itself. Report the cause and verify one sentence before batch editing.",
+          "ko": "전체 이미지 크기를 기준으로 영역을 다시 계산하고 화면 크기를 바꿔 확인해줘. 원본 녹음과 잘라낸 파일을 둘 다 들어보자. 음성 자체를 바꾸기 전에 빠진 쉼과 재생 속도를 확인해줘. 원인을 설명하고 한 문장을 확인한 다음 일괄 수정해줘."
+        },
+        "lesson": {
+          "en": "Audio quality depends on exact matching and timing as well as the voice.",
+          "ko": "음성 품질은 목소리뿐 아니라 정확한 문장 연결과 시간 간격에 달려 있습니다."
+        }
+      },
+      "evidence": [
+        "a4-476",
+        "a4-476r",
+        "a4-538",
+        "a4-538r",
+        "w605",
+        "a4-1637",
+        "a4-1637r",
+        "a4-1624",
+        "a4-1624r"
+      ],
+      "transfer": {
+        "en": "Keep Twi and English clips separate when the printed lines are separate. Re-record changed text before replacing a deployed page.",
+        "ko": "인쇄된 Twi와 영어 줄이 나뉘면 녹음도 따로 연결하세요. 배포된 페이지의 문장을 바꾸면 해당 녹음도 다시 준비합니다."
+      },
+      "code": {
+        "title": {
+          "en": "The app’s recorded-audio data shape",
+          "ko": "앱의 녹음 연결 데이터 형식"
+        },
+        "language": "js",
+        "text": "{\n  text: \"Sam has a cap.\",\n  speechText: \"Sam has a cap.\",\n  audioSrc: \"audio/book7/page-04-01.mp3\",\n  box: { x: 47, y: 28, w: 36, h: 8 },\n  lang: \"en\"\n}",
+        "source": "기술인계문서-ECCR/TECHNICAL_HANDOFF_EN.md §5",
+        "note": {
+          "en": "The handoff’s example, not coordinates to reuse blindly. x/y/w/h are percentages; measure your actual final page.",
+          "ko": "인계 문서의 예시입니다. 좌표를 그대로 복사하지 말고 실제 최종 페이지에서 측정하세요. x/y/w/h는 백분율입니다."
+        },
+        "caption": {
+          "en": "The app’s recorded-audio data shape",
+          "ko": "앱의 녹음 연결 데이터 형식"
+        },
+        "sourceNote": {
+          "en": "The handoff’s example, not coordinates to reuse blindly. x/y/w/h are percentages; measure your actual final page.",
+          "ko": "인계 문서의 예시입니다. 좌표를 그대로 복사하지 말고 실제 최종 페이지에서 측정하세요. x/y/w/h는 백분율입니다."
+        }
+      }
+    },
+    {
+      "id": "offline",
+      "title": {
+        "en": "Prove it can reopen without internet",
+        "ko": "인터넷 없이 다시 열리는지 확인하기"
+      },
+      "goal": {
+        "en": "Distinguish a page still open in memory from a complete offline package.",
+        "ko": "이미 열려 있는 화면과 완전히 저장된 오프라인 패키지를 구별합니다."
+      },
+      "teacherTask": {
+        "en": "While online, save all book images and recordings. Wait for the ready message. Disconnect, close the app completely and reopen it in the same browser. Test pages and audio.",
+        "ko": "온라인 상태에서 책 그림과 녹음을 모두 저장하세요. 준비 완료 표시를 기다립니다. 연결을 끊고 앱을 완전히 닫은 뒤 같은 브라우저에서 다시 열어 페이지와 음성을 확인합니다."
+      },
+      "inputs": [
+        {
+          "en": "A working static reading app, its images and packaged audio files.",
+          "ko": "실행되는 정적 읽기 앱, 페이지 이미지, 앱에 포함된 음성 파일."
+        },
+        {
+          "en": "An offline asset list, service worker and a phone or classroom computer.",
+          "ko": "오프라인 파일 목록, 서비스 워커, 휴대전화 또는 교실 컴퓨터."
+        }
+      ],
+      "prompt": {
+        "en": "Make the book and packaged teacher recordings work after a fresh offline launch. Include every required image, recording and app file in the generated offline list. Show download progress and report ready only after required files are cached. Preserve MP3 range-response handling. On content changes, regenerate the list and change the cache version. Provide a same-browser close-and-reopen test and explain what must be downloaded first.",
+        "ko": "앱을 완전히 닫았다가 오프라인으로 다시 열어도 책과 포함된 교사 녹음이 작동하게 해줘. 필요한 그림·녹음·앱 파일을 생성되는 오프라인 목록에 모두 포함해줘. 진행률을 보여주고 필요한 파일 저장이 끝났을 때만 준비 완료로 표시해줘. MP3 구간 요청 처리는 유지해줘. 내용이 바뀌면 목록과 캐시 버전을 갱신해줘. 같은 브라우저에서 닫고 다시 여는 검사 절차와 최초 다운로드 조건을 설명해줘."
+      },
+      "expected": {
+        "en": "A verified cold-start checklist for the actual device, with the downloaded edition recorded.",
+        "ko": "실제 기기의 완전 종료 후 재실행 확인표와 저장된 판본 기록."
+      },
+      "checks": [
+        {
+          "en": "The initial download completes while connected.",
+          "ko": "처음 다운로드가 온라인 상태에서 완료됐다."
+        },
+        {
+          "en": "After closing and reopening offline, images and audio both work.",
+          "ko": "오프라인 상태에서 완전히 닫고 다시 열어도 그림과 음성이 작동한다."
+        },
+        {
+          "en": "A revised image or clip appears after an online update and remains available offline.",
+          "ko": "온라인에서 갱신한 그림이나 녹음이 오프라인에서도 새 버전으로 열린다."
+        }
+      ],
+      "challenge": {
+        "symptom": {
+          "en": "Audio works after you disable Wi-Fi, but a fresh launch fails.",
+          "ko": "Wi-Fi를 끈 직후에는 소리가 나지만 앱을 닫고 다시 열면 실패합니다."
+        },
+        "revision": {
+          "en": "Reproduce a fresh offline launch in the same browser. Identify which required URLs are missing from storage. Do not treat an already-open page as a passed test. Rebuild the asset list and retest MP3 playback and app startup.",
+          "ko": "같은 브라우저에서 완전 종료 후 오프라인 실행을 재현해줘. 저장소에 없는 필수 URL을 찾아줘. 이미 열려 있던 페이지를 통과로 처리하지 말고 파일 목록을 다시 만든 뒤 MP3 재생과 앱 시작을 재검사해줘."
+        },
+        "lesson": {
+          "en": "A successful open tab does not prove that startup files and every recording were saved.",
+          "ko": "열려 있는 탭이 작동해도 시작 파일과 모든 녹음이 저장됐다는 뜻은 아닙니다."
+        }
+      },
+      "evidence": [
+        "w354",
+        "w355",
+        "a4-1521",
+        "a4-1521r",
+        "a4-1567",
+        "a4-1567r",
+        "w733",
+        "a4-1624r"
+      ],
+      "transfer": {
+        "en": "Use the same browser profile for saving and reading. Plan an online refresh when the edition changes or browser storage is cleared.",
+        "ko": "저장할 때와 읽을 때 같은 브라우저 프로필을 사용하세요. 판본이 바뀌거나 브라우저 저장소를 지웠다면 온라인에서 다시 저장합니다."
+      },
+      "code": {
+        "title": {
+          "en": "Existing app maintenance commands",
+          "ko": "기존 앱의 갱신 명령"
+        },
+        "language": "sh",
+        "text": "npm run build:offline\nnpm run check\nnpm run serve",
+        "source": "기술인계문서-ECCR/TECHNICAL_HANDOFF_EN.md §§16–17",
+        "note": {
+          "en": "Run in the reading-app repository, where these scripts exist. They are not commands for a blank folder or this tutorial page. npm run check checks JavaScript syntax; cold-start behavior still needs device testing.",
+          "ko": "해당 스크립트가 있는 읽기 앱 저장소에서 실행합니다. 빈 폴더나 이 실습 페이지의 명령이 아닙니다. npm run check는 JavaScript 문법을 검사하며 완전 종료 후 실행은 기기에서 확인해야 합니다."
+        },
+        "caption": {
+          "en": "Existing app maintenance commands",
+          "ko": "기존 앱의 갱신 명령"
+        },
+        "sourceNote": {
+          "en": "Run in the reading-app repository, where these scripts exist. They are not commands for a blank folder or this tutorial page. npm run check checks JavaScript syntax; cold-start behavior still needs device testing.",
+          "ko": "해당 스크립트가 있는 읽기 앱 저장소에서 실행합니다. 빈 폴더나 이 실습 페이지의 명령이 아닙니다. npm run check는 JavaScript 문법을 검사하며 완전 종료 후 실행은 기기에서 확인해야 합니다."
+        }
+      }
+    },
+    {
+      "id": "release",
+      "title": {
+        "en": "Release a reproducible classroom kit",
+        "ko": "다시 만들 수 있는 수업 자료로 묶어 배포하기"
+      },
+      "goal": {
+        "en": "Deliver the source, finished files, teaching decisions and checks so another teacher can continue.",
+        "ko": "다른 교사가 이어갈 수 있도록 원본·완성 파일·수업 판단·확인 결과를 함께 전달합니다."
+      },
+      "teacherTask": {
+        "en": "Export your brief, manuscript, prompts, corrections and test record. Put editable sources beside the finished PDF/app files. Check the published URL, then pilot with a small group and record the next change.",
+        "ko": "제작 계획·원고·프롬프트·교정·검사 기록을 내보내세요. 완성 PDF·앱 파일과 수정 가능한 원본을 함께 정리합니다. 배포 주소를 확인하고 소규모 수업에서 다음 수정점을 기록합니다."
+      },
+      "inputs": [
+        {
+          "en": "Approved book, images, recordings, editable sources and a completed review log.",
+          "ko": "승인된 책·그림·녹음·수정 가능한 원본·검토 기록."
+        },
+        {
+          "en": "Host configuration and the classroom use plan.",
+          "ko": "배포 설정과 수업 활용 계획."
+        }
+      ],
+      "prompt": {
+        "en": "Prepare a reproducible handoff for this edition. Include purpose, file map, exact inputs, regeneration instructions, required fonts/tools, audio mapping, missing items, version/update steps and test results. Label what is implemented, what is a historical proposal and what still needs teacher review. Deploy the approved files to the selected host and verify the published paths, media and mobile layout. Include a small-class pilot record and a matching assessment plan, without inventing learning gains.",
+        "ko": "이 판본을 다시 만들 수 있는 인계 자료를 정리해줘. 목적·파일 구성·정확한 입력·재생성 절차·필요한 글꼴과 도구·음성 연결·누락 항목·버전 갱신·검사 결과를 포함해줘. 구현된 것, 과거 제안, 교사 검토가 남은 것을 구분해줘. 승인된 파일을 선택한 호스트에 배포하고 실제 주소에서 경로·미디어·모바일 배치를 확인해줘. 소규모 수업 기록과 연계 평가 계획을 넣되 확인되지 않은 학습 효과를 쓰지 마."
+      },
+      "expected": {
+        "en": "A shareable release plus a source kit that another teacher or developer can inspect and rebuild.",
+        "ko": "공유 가능한 배포본과 다른 교사·개발자가 살펴보고 다시 만들 수 있는 원본 묶음."
+      },
+      "checks": [
+        {
+          "en": "The published link opens from another device and all needed files resolve.",
+          "ko": "다른 기기에서 배포 주소가 열리고 필요한 파일이 연결된다."
+        },
+        {
+          "en": "Editable content, prompts, generated artwork and build instructions are included or clearly located.",
+          "ko": "수정 가능한 내용·프롬프트·생성 그림·제작 절차의 위치가 명확하다."
+        },
+        {
+          "en": "Known gaps and teacher approval status are visible.",
+          "ko": "알려진 누락과 교사 승인 상태가 표시되어 있다."
+        },
+        {
+          "en": "A teacher can say what learners will read, how progress will be observed and what will trigger revision.",
+          "ko": "학생이 무엇을 읽고 어떻게 진전을 관찰하며 언제 수정할지 교사가 설명할 수 있다."
+        }
+      ],
+      "challenge": {
+        "symptom": {
+          "en": "The homepage is online, but an image path fails or the source kit depends on a creator’s personal folder.",
+          "ko": "홈페이지는 열리지만 그림 경로가 끊어지거나 원본 묶음이 제작자의 개인 폴더에 의존합니다."
+        },
+        "revision": {
+          "en": "Test the release under its actual project URL. Replace machine-specific content paths with portable project paths. Document unavoidable local font/tool requirements. Rebuild from a fresh copy and list any input that is still missing.",
+          "ko": "실제 프로젝트 주소 아래에서 배포본을 확인해줘. 개인 컴퓨터에 종속된 콘텐츠 경로는 이동 가능한 프로젝트 경로로 바꾸고, 로컬 글꼴·도구 조건은 문서화해줘. 새 사본에서 다시 만들어보고 빠진 입력을 알려줘."
+        },
+        "lesson": {
+          "en": "A finished PDF or live homepage becomes reproducible when its inputs and regeneration steps travel with it.",
+          "ko": "완성 PDF나 홈페이지에 입력과 재생성 절차가 함께 있어야 다른 사람이 다시 만들 수 있습니다."
+        }
+      },
+      "evidence": [
+        "full-211",
+        "full-212",
+        "w242",
+        "a2-208",
+        "a2-208r",
+        "a4-1624",
+        "a4-1624r",
+        "full-1228"
+      ],
+      "transfer": {
+        "en": "Expand after the pilot: add matching assessment and writing pages, then other stories at the planned scope. Readers A/B/C provide different texts for repeated practice; their shared scope is not a validated claim of equal difficulty.",
+        "ko": "첫 수업 이후 연계 평가·쓰기 자료를 더하고 같은 계획 범위의 다른 이야기를 만드세요. Readers A/B/C는 다른 글로 반복 연습하는 자료이며, 같은 범위가 검증된 동등 난이도를 뜻하지는 않습니다."
+      }
+    }
+  ],
+  "interactionSuggestions": [
+    {
+      "lesson": "brief",
+      "type": "brief-builder",
+      "description": {
+        "en": "Audience, known sounds, prepared words and goal fields generate a filled prompt and exportable brief.",
+        "ko": "학습자·배운 음가·준비 단어·목표를 입력하면 채워진 프롬프트와 제작 계획서를 내보냅니다."
+      }
+    },
+    {
+      "lesson": "manuscript",
+      "type": "editable-manuscript",
+      "description": {
+        "en": "Edit real source sentences; show word/sentence counts and differences. Warnings never claim to certify decodability.",
+        "ko": "실제 원고를 편집하고 단어·문장 수와 수정 차이를 봅니다. 경고를 읽기 가능성 인증으로 표시하지 않습니다."
+      }
+    },
+    {
+      "lesson": "illustration",
+      "type": "image-inspection",
+      "description": {
+        "en": "Show the actual image and teacher checks: scene match, character continuity, no text, safe crop.",
+        "ko": "실제 그림과 장면 일치·인물 일관성·글자 없음·잘림 없음 확인 항목을 제공합니다."
+      }
+    },
+    {
+      "lesson": "layout",
+      "type": "image-text-balance",
+      "description": {
+        "en": "Change image/text balance, fit/fill and font size. Display clipping risk before exporting a layout brief.",
+        "ko": "그림·본문 비율, 전체 맞춤/채우기, 글자 크기를 바꾸고 잘림 위험을 확인한 뒤 배치 지시서를 내보냅니다."
+      }
+    },
+    {
+      "lesson": "review",
+      "type": "correction-diff",
+      "description": {
+        "en": "Old/new text, source/page and reason produce a narrow revision prompt and dependent-file checklist.",
+        "ko": "이전·수정 문장, 출처·쪽, 이유로 구체적인 수정 프롬프트와 연결 파일 확인표를 만듭니다."
+      }
+    },
+    {
+      "lesson": "audio",
+      "type": "hotspot-percent",
+      "description": {
+        "en": "Move and resize a rectangle over a real page; export x/y/w/h percentages. State clearly if no real recording is connected.",
+        "ko": "실제 페이지 위에서 사각형을 옮기고 크기를 바꿔 x/y/w/h 백분율을 내보냅니다. 실제 녹음이 연결되지 않았다면 명시합니다."
+      }
+    },
+    {
+      "lesson": "offline",
+      "type": "cold-start-log",
+      "description": {
+        "en": "Record device, browser, edition, first-save completion and close/reopen results. A tick is a self-reported test, not automated verification.",
+        "ko": "기기·브라우저·판본·최초 저장·종료 후 재실행 결과를 기록합니다. 체크는 자기 보고이며 자동 검증은 아닙니다."
+      }
+    },
+    {
+      "lesson": "release",
+      "type": "project-export",
+      "description": {
+        "en": "Export the edited brief, manuscript, correction and checks together; progress reflects user-completed tasks.",
+        "ko": "편집한 계획·원고·수정·확인을 함께 내보냅니다. 진행률은 사용자가 완료한 작업을 반영합니다."
+      }
+    }
+  ],
+  "sourceDocuments": [
+    {
+      "path": "book/v.0/결과물Yaw_Janet/book_7_8_9_materials/05_prompts/sam_and_cat_imagegen_prompts.md",
+      "usedFor": [
+        "illustration"
+      ]
+    },
+    {
+      "path": "book/v.0/결과물Yaw_Janet/book_7_8_9_materials/06_scripts/make_sam_and_cat_reader_imagegen.py",
+      "usedFor": [
+        "layout",
+        "manuscript"
+      ]
+    },
+    {
+      "path": "book/output/pdf/최종/ECCR_Book_7.pdf",
+      "usedFor": [
+        "manuscript",
+        "review",
+        "layout"
+      ]
+    },
+    {
+      "path": "book/output/pdf/최종/REVISION_NOTES_20260914.md",
+      "usedFor": [
+        "review"
+      ]
+    },
+    {
+      "path": "book/output/pdf/최종/Phonics_Readers_ABC/TEACHER_GUIDE_AND_ANSWERS.md",
+      "usedFor": [
+        "manuscript",
+        "release"
+      ]
+    },
+    {
+      "path": "book/output/pdf/a4/phonics_abc_20260921/build_series.py",
+      "usedFor": [
+        "layout"
+      ]
+    },
+    {
+      "path": "기술인계문서-ECCR/TECHNICAL_HANDOFF_EN.md",
+      "usedFor": [
+        "audio",
+        "offline",
+        "release"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "id": "sam-cat-excerpt",
+  "title": "Sam and the Cat",
+  "language": "en",
+  "source": {
+    "file": "book/v.0/결과물Yaw_Janet/book 7.md",
+    "includedCopy": "source-manuscript.txt",
+    "scope": "Selected verbatim sentences from Simple Sentences, More Reading Practice and Short Paragraph. Three teaching pages regroup the original manuscript; they are not the original book's page numbers.",
+    "credit": "Yaw and Janet · ECCR · Produced by Team Kairos"
+  },
+  "pages": [
+    {
+      "id": "simple",
+      "title": "Simple Sentences",
+      "sentences": [
+        {"id": "simple-1", "text": "Sam has a cap."},
+        {"id": "simple-2", "text": "The cat sat."},
+        {"id": "simple-3", "text": "A man has a bag."}
+      ]
+    },
+    {
+      "id": "practice",
+      "title": "More Reading Practice",
+      "sentences": [
+        {"id": "practice-1", "text": "Sam can pat the cat."},
+        {"id": "practice-2", "text": "The cat sat on a mat."},
+        {"id": "practice-3", "text": "Sam and the cat sat."}
+      ]
+    },
+    {
+      "id": "paragraph",
+      "title": "Short Paragraph",
+      "sentences": [
+        {"id": "paragraph-1", "text": "Sam has a cat."},
+        {"id": "paragraph-2", "text": "The cat sat on a mat."},
+        {"id": "paragraph-3", "text": "Sam can pat the cat."},
+        {"id": "paragraph-4", "text": "The cat ran at a rat."},
+        {"id": "paragraph-5", "text": "Sam and the cat sat."}
+      ]
+    }
+  ]
+}
